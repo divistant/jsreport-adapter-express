@@ -6,7 +6,7 @@ const customerService = {
     const customersData = await customerRepository.getAll();
 
     return customersData.map(data => ({
-      fullName: `${data.firstName} ${data.lastName}`,
+      fullName: `${data.first_name} ${data.last_name}`,
       email: data.email,
     }));
   },
