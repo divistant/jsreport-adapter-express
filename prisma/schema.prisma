@@ -13,7 +13,7 @@ model Customer {
   last_name  String
   email      String   @unique
   created_at DateTime @default(now())
-  updated_at DateTime
+  updated_at DateTime @default(now())
 
   @@map("customer")
 }

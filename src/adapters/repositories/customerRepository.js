@@ -1,4 +1,4 @@
-const { prisma } = require('../../config/config');
+const prisma = require("../../infrastructure/database/prismaClient");
 
 const customerRepository = {
 
