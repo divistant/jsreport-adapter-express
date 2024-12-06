@@ -1,8 +1,8 @@
-const generateReportService = require('../adapters/services/jsreportService');
+const { generateReportWithTemplate } = require('../adapters/services/jsreportService');
 
 const generateOrderReport = async () => {
   try {
-    const report = await generateReportService("orders-main", "");
+    const report = await generateReportWithTemplate("orders-main", "");
 
     return report;
   } catch (error) {
