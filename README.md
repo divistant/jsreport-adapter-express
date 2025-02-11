@@ -1,4 +1,3 @@
-
 ### Set up the project
 
 ```
@@ -13,6 +12,7 @@ npm run migrate
 ```
 
 ### Running the project
+
 ```
 npm run dev
 ```

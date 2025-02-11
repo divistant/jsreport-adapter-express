@@ -1,10 +1,7 @@
-const prisma = require("../../infrastructure/database/prismaClient");
-
+import prisma from '../../infrastructure/database/prismaClient.js'
 const customerRepository = {
-
   getAll: async () => {
-    return await prisma.customer.findMany();
+    return await prisma.customer.findMany()
   },
-};
-
-module.exports = customerRepository;
+}
+export default customerRepository

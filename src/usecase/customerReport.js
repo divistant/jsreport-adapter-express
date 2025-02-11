@@ -1,12 +1,10 @@
-const customerService = require('../adapters/services/customerService');
-const { generateReportWithoutTemplate } = require('../adapters/services/jsreportService'); 
-
+import customerService from '../adapters/services/customerService.js'
+import { generateReportWithoutTemplate } from '../adapters/services/jsreportService.js'
 const generateCustomerReport = async () => {
   try {
-    const customer = await customerService.getCustomersWithFullNameAndEmail();
-    
+    const customer = await customerService.getCustomersWithFullNameAndEmail()
     const customTemplate = {
-        content: `
+      content: `
             <html>
             <head>
                 <title>Customer Report</title>
@@ -39,19 +37,18 @@ const generateCustomerReport = async () => {
             </body>
             </html>
         `,
-        recipe: "chrome-pdf",
-        engine: "handlebars"
-        // chrome: {
-        //     landscape: true,
-        // }
-    };
-
-    const report = await generateReportWithoutTemplate(customTemplate, { customer });
-
-    return report;
+      recipe: 'chrome-pdf',
+      engine: 'handlebars',
+      // chrome: {
+      //     landscape: true,
+      // }
+    }
+    const report = await generateReportWithoutTemplate(customTemplate, {
+      customer,
+    })
+    return report
   } catch (error) {
-    throw new Error(`Failed to generate report: ${error.message}`);
+    throw new Error(`Failed to generate report: ${error.message}`)
   }
-};
-
-module.exports = generateCustomerReport;
+}
+export default generateCustomerReport

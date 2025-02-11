@@ -1,5 +1,5 @@
 # Logs
-logs
+logs/*
 *.log
 npm-debug.log*
 yarn-debug.log*
@@ -128,3 +128,12 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# VSCode config
+# This can be removed if you wish to share settings with your team
+.vscode/
+
+
+# Reinclude files that need to be included
+!.gitkeep
+!*.example

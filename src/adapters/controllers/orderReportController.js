@@ -1,15 +1,14 @@
-const generateOrderReport = require('../../usecase/orderReport');
-
+import generateOrderReport from '../../usecase/orderReport.js'
 const orderReportController = async (req, res) => {
-
   try {
-    const report = await generateOrderReport();
-    
-    res.setHeader('Content-Type', 'application/pdf');
-    res.send(report);
+    const report = await generateOrderReport()
+    res.setHeader('Content-Type', 'application/pdf')
+    res.send(report)
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    res.status(500).json({ message: error.message })
   }
-};
-
-module.exports = { orderReportController };
+}
+export { orderReportController }
+export default {
+  orderReportController,
+}

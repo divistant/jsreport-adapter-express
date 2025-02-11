@@ -1,9 +1,13 @@
-const jsreportClient = require('@jsreport/nodejs-client');
-const config = require('../../config/config');
+import jsreportClient from '@jsreport/nodejs-client'
+import config from '../../config/config.js'
 
-const client = jsreportClient(config.jsreport.url, config.jsreport.username, config.jsreport.password);
+const client = jsreportClient(
+  config.jsreport.url,
+  config.jsreport.username,
+  config.jsreport.password
+)
 
-const generateReportWithTemplate = async (templateName, reportData) => {
+export const generateReportWithTemplate = async (templateName, reportData) => {
   try {
     const response = await client.render({
       template: {
@@ -14,18 +18,20 @@ const generateReportWithTemplate = async (templateName, reportData) => {
         reports: {
           save: true,
         },
-      }
-    });
-
-    console.log("PDF generated successfully with password.");
-
-    return response.body();
+      },
+    })
+    console.log('PDF generated successfully with password.')
+    return response.body()
   } catch (error) {
-    throw new Error(`Failed to generate report with template: ${error.message}`);
+    error.message = `Failed to generate report with template: ${error.message}`
+    throw error
   }
-};
+}
 
-const generateReportWithoutTemplate = async (customTemplate, reportData) => {
+export const generateReportWithoutTemplate = async (
+  customTemplate,
+  reportData
+) => {
   try {
     const response = await client.render({
       template: customTemplate,
@@ -34,13 +40,11 @@ const generateReportWithoutTemplate = async (customTemplate, reportData) => {
         reports: {
           save: true,
         },
-      }
-    });
-
-    return response.body();
+      },
+    })
+    return response.body()
   } catch (error) {
-    throw new Error(`Failed to generate report without template: ${error.message}`);
+    error.message = `Failed to generate report without template: ${error.message}`
+    throw error
   }
-};
-
-module.exports = { generateReportWithTemplate, generateReportWithoutTemplate };
+}

@@ -1,16 +1,12 @@
-const customerRepository = require('../repositories/customerRepository');
-const Customer = require('../../entities/customer');
-
+import customerRepository from '../repositories/customerRepository.js'
+import Customer from '../../entities/customer.js'
 const customerService = {
   getCustomersWithFullNameAndEmail: async () => {
-    const customersData = await customerRepository.getAll();
-
-    return customersData.map(data => ({
+    const customersData = await customerRepository.getAll()
+    return customersData.map((data) => ({
       fullName: `${data.first_name} ${data.last_name}`,
       email: data.email,
-    }));
+    }))
   },
-
-};
-
-module.exports = customerService;
+}
+export default customerService

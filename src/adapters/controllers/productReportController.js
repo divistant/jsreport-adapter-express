@@ -1,17 +1,18 @@
-const productReport = require('../../usecase/productReport');
-
+import productReport from '../../usecase/productReport.js'
+import logger from '../../utils/logger.js'
 const productReportController = async (req, res) => {
-  const category = req.query.category;
-
+  const category = req.query.category
   try {
-    const report = await productReport(category);
-    
-    res.setHeader('Content-Disposition', 'attachment; filename="report.pdf"');
-    res.setHeader('Content-Type', 'application/pdf');
-    res.send(report);
+    const report = await productReport(category)
+    res.setHeader('Content-Disposition', 'attachment; filename="report.pdf"')
+    res.setHeader('Content-Type', 'application/pdf')
+    res.send(report)
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    logger.error(error)
+    res.status(500).json({ message: error.message })
   }
-};
-
-module.exports = { productReportController };
+}
+export { productReportController }
+export default {
+  productReportController,
+}

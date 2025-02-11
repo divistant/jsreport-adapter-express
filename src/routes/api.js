@@ -1,12 +1,12 @@
-const express = require('express');
-const { productReportController } = require('../adapters/controllers/productReportController');
-const { orderReportController } = require('../adapters/controllers/orderReportController');
-const { customerReportController } = require('../adapters/controllers/customerReportController');
+import express from 'express'
+import { productReportController } from '../adapters/controllers/productReportController.js'
+import { orderReportController } from '../adapters/controllers/orderReportController.js'
+import { customerReportController } from '../adapters/controllers/customerReportController.js'
 
-const router = express.Router();
+const router = express.Router()
 
-router.post('/product-report', productReportController);
-router.post('/order-report', orderReportController);
-router.post('/customer-report', customerReportController);
+router.post('/product-report', productReportController)
+router.post('/order-report', orderReportController)
+router.post('/customer-report', customerReportController)
 
-module.exports = router;
+export default router

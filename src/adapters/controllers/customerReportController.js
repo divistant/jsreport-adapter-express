@@ -1,15 +1,15 @@
-const generateCustomerReport = require('../../usecase/customerReport');
-
+import generateCustomerReport from '../../usecase/customerReport.js'
 const customerReportController = async (req, res) => {
   try {
-    const report = await generateCustomerReport();
-
+    const report = await generateCustomerReport()
     // Mengirimkan file PDF sebagai respons
-    res.setHeader('Content-Type', 'application/pdf');
-    res.send(report);
+    res.setHeader('Content-Type', 'application/pdf')
+    res.send(report)
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    res.status(500).json({ message: error.message })
   }
-};
-
-module.exports = { customerReportController };
+}
+export { customerReportController }
+export default {
+  customerReportController,
+}
