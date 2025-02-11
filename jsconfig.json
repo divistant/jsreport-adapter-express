@@ -5,7 +5,8 @@
     "target": "ES6",
     "allowImportingTsExtensions": true,
     "strictNullChecks": true,
-    "strictFunctionTypes": true
+    "strictFunctionTypes": true,
+    "types": ["node"]
   },
   "exclude": ["node_modules", "**/node_modules/*"]
 }

@@ -133,6 +133,9 @@ dist
 # This can be removed if you wish to share settings with your team
 .vscode/
 
+# Output folders
+output/*
+
 
 # Reinclude files that need to be included
 !.gitkeep

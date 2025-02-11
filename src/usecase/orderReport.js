@@ -1,10 +1,6 @@
-import { generateReportWithTemplate } from '../adapters/services/jsreportService.js'
+import { render } from '../adapters/services/jsreportService.js'
 const generateOrderReport = async () => {
-  try {
-    const report = await generateReportWithTemplate('orders-main', '')
-    return report
-  } catch (error) {
-    throw new Error(`Failed to generate report: ${error.message}`)
-  }
+  const report = await render('orders-main', '')
+  return report
 }
 export default generateOrderReport

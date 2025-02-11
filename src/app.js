@@ -1,5 +1,6 @@
-import express from 'express'
 import config from './config/config.js'
+import express from 'express'
+
 import apiRoutes from './routes/api.js'
 import authMiddleware from './middleware/authMiddleware.js'
 import loggerMiddleware from './middleware/loggerMiddleware.js'
